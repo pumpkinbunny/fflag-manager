@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|Win32">
+      <Configuration>debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|Win32">
+      <Configuration>release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="debug|x64">
+      <Configuration>debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|x64">
+      <Configuration>release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a22899e6-7bd7-419e-bc21-1bef12f90d73}</ProjectGuid>
+    <RootNamespace>fflagmanager</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <OutDir>$(SolutionDir)bld\$(Configuration)\bin\</OutDir>
+    <IntDir>$(SolutionDir)bld\$(Configuration)\temp\</IntDir>
+    <TargetName>odessa</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NOMINMAX;NDEBUG;_CONSOLE;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OmitFramePointers>true</OmitFramePointers>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <CallingConvention>FastCall</CallingConvention>
+      <AdditionalIncludeDirectories>$(ProjectDir)vendor\nlohmann\include\;$(ProjectDir)source\engine\;$(ProjectDir)source\misc\;$(ProjectDir)source\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\engine\engine.cpp" />
+    <ClCompile Include="source\engine\fflags\fflags.cpp" />
+    <ClCompile Include="source\entry.cpp" />
+    <ClCompile Include="source\misc\memory\memory.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".clang-format" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\engine\engine.hpp" />
+    <ClInclude Include="source\engine\fflags\fflags.hpp" />
+    <ClInclude Include="source\misc\constants.hpp" />
+    <ClInclude Include="source\misc\memory\memory.hpp" />
+    <ClInclude Include="source\native.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\adl_serializer.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\byte_container_with_subtype.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\abi_macros.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\conversions\from_json.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\conversions\to_chars.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\conversions\to_json.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\exceptions.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\hash.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\input\binary_reader.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\input\input_adapters.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\input\json_sax.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\input\lexer.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\input\parser.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\input\position_t.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\iterators\internal_iterator.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\iterators\iteration_proxy.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\iterators\iterator_traits.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\iterators\iter_impl.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\iterators\json_reverse_iterator.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\iterators\primitive_iterator.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\json_custom_base_class.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\json_pointer.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\json_ref.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\macro_scope.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\macro_unscope.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\call_std\begin.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\call_std\end.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\cpp_future.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\detected.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\identity_tag.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\is_sax.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\std_fs.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\type_traits.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\meta\void_t.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\output\binary_writer.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\output\output_adapters.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\output\serializer.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\string_concat.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\string_escape.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\string_utils.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\detail\value_t.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\json.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\json_fwd.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\ordered_map.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\thirdparty\hedley\hedley.hpp" />
+    <ClInclude Include="vendor\nlohmann\include\nlohmann\thirdparty\hedley\hedley_undef.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
