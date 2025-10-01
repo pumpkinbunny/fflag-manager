@@ -9,7 +9,7 @@ A simple and fast tool for managing Roblox Fast Flags (FFlags) on the PC client.
 
 - **Dynamic FFlag Overrides**: Modify FFlags in the live Roblox client. Can be run before or during a game session.
 - **Configuration via JSON**: Easily manage all your flag overrides in a simple `fflags.json` file.
-- **FFlag Cleanup**: Automatically detects FFlags in your JSON that no longer exist in the client and offers to remove them, keeping your configuration file clean.
+- **FFlag Cleanup**: Automatically detects FFlags in your JSON that no longer exist in the client and offers to remove them.
 
 ## Usage
 
@@ -40,7 +40,7 @@ You can use [Bloxstrap](https://github.com/pizzaboxer/bloxstrap) to automaticall
 ## Notes & Troubleshooting
 
 -   If the tool reports that it failed to find a FFlag, it most likely means that FFlag is no longer used by the Roblox client and can be removed from your JSON file.
--   Not every FFlag is supported. Some flags have unregistered or unavailable "get/set" methods within the client, which makes them impossible to modify.
+-   Not every FFlag is supported. Some FFlags have unregistered or unavailable "get/set" methods within the client, which makes them impossible to modify.
 
 ## Building Notes
 
