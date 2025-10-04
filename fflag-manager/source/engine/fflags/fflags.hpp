@@ -8,7 +8,7 @@
 
 namespace odessa::engine
 {
-    enum e_value_type : std::uint32_t
+    enum class e_value_type : std::uint32_t
     {
         log     = 1, ///< Log value type
         string  = 2, ///< String value type
@@ -16,7 +16,7 @@ namespace odessa::engine
         flag    = 4  ///< Boolean flag value type
     };
 
-    enum e_flag_type : std::uint32_t
+    enum class e_flag_type : std::uint32_t
     {
         constant = 1,  ///< Constant flag type
         dynamic  = 2,  ///< Dynamic flag type
@@ -28,12 +28,37 @@ namespace odessa::engine
     {
         void        *vftable;       ///< +0x00 Virtual function table pointer
         std::uint8_t gap_0[ 0x90 ]; ///< +0x90 Gap / Padding
-        e_flag_type  flag_type;     ///< +0x98 Flag type (e_flag_type)
-        e_value_type value_type;    ///< +0x9c Flag value type (e_value_type)
+        e_flag_type  flag_type;     ///< +0x98 FFlag type (e_flag_type)
+        e_value_type value_type;    ///< +0x9c FFlag value type (e_value_type)
         std::uint8_t gap_1[ 0x8 ];  ///< +0xa0 Gap / Padding
-        void        *value;         ///< +0xa8 Pointer to the flag's value
+        void        *value;         ///< +0xa8 Pointer to the FFlag's value
     };
 
+    struct string_t
+    {
+        std::uint8_t  bytes[ 0x10 ]; ///< +0x00 Inline buffer for small strings, or pointer to heap-allocated buffer for large strings
+        std::uint64_t size;          ///< +0x10 Current size of the string
+        std::uint64_t allocation;    ///< +0x18 Allocated capacity
+    };
+
+    struct hash_map_t
+    {
+        std::uint64_t end;           ///< +0x00 Pointer to the end sentinel node of the hash map
+        std::uint8_t  gap_0[ 0x8 ];  ///< +0x08 Gap / Padding
+        std::uint64_t list;          ///< +0x10 Pointer to the bucket list array
+        std::uint8_t  gap_1[ 0x10 ]; ///< +0x18 Gap / Padding
+        std::uint64_t mask;          ///< +0x28 Hash mask for bucket indexing (bucket_count - 1)
+        std::uint64_t maskl;         ///< +0x30 Secondary mask value
+    };
+
+    struct hash_entry_t
+    {
+        std::uint64_t back;    ///< +0x00 Pointer to the previous node in the bucket
+        std::uint64_t forward; ///< +0x08 Pointer to the next node in the bucket
+        string_t      string;  ///< +0x10 The FFlag name
+        std::uint64_t get_set; ///< +0x30 Pointer to the GetSet for this FFlag
+    };
+    
     class c_remote_fflag
     {
         std::uint64_t                      m_address { 0 };     ///< The address of the fflag_t in the remote process.
@@ -137,7 +162,7 @@ namespace odessa::engine
 
     class c_fflags
     {
-        std::uint64_t m_hash { 0xcbf29ce484222325 }; ///< FNV-1a 64-bit hash basis
+        std::uint64_t m_basis { 0xcbf29ce484222325 }; ///< FNV-1a 64-bit hash basis
         std::uint64_t m_prime { 0x100000001b3 };     ///< FNV-1a 64-bit prime
 
         std::uint64_t m_singleton { 0 }; ///< Address of the FFlag singleton

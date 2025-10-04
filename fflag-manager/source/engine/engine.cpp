@@ -79,7 +79,16 @@ namespace odessa::engine
         }
 
         nlohmann::json data;
-        file >> data;
+
+        try
+        {
+            file >> data;
+        }
+        catch ( const nlohmann::json::parse_error &eggsception )
+        {
+            std::println( "failed to parse fflags.json: {}", eggsception.what( ) );
+            return;
+        };
 
         std::vector< std::string > failed;
 
