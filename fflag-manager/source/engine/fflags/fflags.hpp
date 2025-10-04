@@ -162,7 +162,7 @@ namespace odessa::engine
 
     class c_fflags
     {
-        std::uint64_t m_hash { 0xcbf29ce484222325 }; ///< FNV-1a 64-bit hash basis
+        std::uint64_t m_basis { 0xcbf29ce484222325 }; ///< FNV-1a 64-bit hash basis
         std::uint64_t m_prime { 0x100000001b3 };     ///< FNV-1a 64-bit prime
 
         std::uint64_t m_singleton { 0 }; ///< Address of the FFlag singleton
