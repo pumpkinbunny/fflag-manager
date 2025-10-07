@@ -34,6 +34,12 @@ namespace odessa::engine
         void        *value;         ///< +0xa8 Pointer to the FFlag's value
     };
 
+    struct nodes_t
+    {
+        std::uint64_t first;   ///< +0x00 Pointer to the first node in the bucket
+        std::uint64_t current; ///< +0x08 Pointer to the current node in the bucket
+    };
+
     struct string_t
     {
         std::uint8_t  bytes[ 0x10 ]; ///< +0x00 Inline buffer for small strings, or pointer to heap-allocated buffer for large strings
