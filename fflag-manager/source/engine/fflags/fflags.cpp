@@ -97,17 +97,16 @@ namespace odessa::engine
         const auto bucket_index = basis & hash_map.mask;
         const auto bucket_base  = hash_map.list + bucket_index * sizeof( void * ) * 2;
 
-        const auto first_node   = g_memory->read< std::uint64_t >( bucket_base );
-        auto       current_node = g_memory->read< std::uint64_t >( bucket_base + sizeof( void * ) );
+        auto       bucket_nodes = g_memory->read< nodes_t >( bucket_base );
 
-        if ( current_node == hash_map.end )
+        if ( bucket_nodes.current == hash_map.end )
             return c_remote_fflag { 0 };
 
         const auto name_length = name.length( );
 
         while ( true )
         {
-            const auto hash_entry   = g_memory->read< hash_entry_t >( current_node );
+            const auto hash_entry   = g_memory->read< hash_entry_t >( bucket_nodes.current );
             const auto entry_string = hash_entry.string;
 
             if ( entry_string.size == name_length )
@@ -132,10 +131,10 @@ namespace odessa::engine
                     return c_remote_fflag { hash_entry.get_set };
             }
 
-            if ( current_node == first_node )
+            if ( bucket_nodes.current == bucket_nodes.first )
                 break;
 
-            current_node = hash_entry.forward;
+            bucket_nodes.current = hash_entry.forward;
         }
 
         return c_remote_fflag { 0 };
